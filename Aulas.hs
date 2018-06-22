@@ -426,19 +426,38 @@ my_tail ::[Int] -> [Int]
 my_tail [] = []
 my_tail (_:xs) = xs
 
+
+-- 
+concatena :: [a] -> [a] -> [a]
+concatena [] y = y
+concatena x [] = x
+concatena (x:xs) y = x : concatena xs y
+
+-- ex[1,2,3] => [3] ++ [2] ++ [1] == (inv xs) ++ [x]
+inverso :: [a] -> [a]
+inverso [] = []
+inverso (x:xs) = (inverso xs) ++ [x]
+
+
+gerar_lista :: Int -> [Int]
+gerar_lista n = n:gerar_lista(n + 1)
+				where n < 10
+
 --tipos algebricos
 
-type Pessoa2 = String
+type Pessoa_2 = String
 type Carro = String
 type Idade2 = Int
-type Registro = (Pessoa2,Carro,Idade2)
+type Registro = (Pessoa_2,Carro,Idade2)
 type BD = [Registro]
 
 f_bd:: BD
 f_bd = [("JOAO","BMW",50),("ELENA","CAMARO", 25)]
 
 
-get_nome :: Registro ->Pessoa2
+
+
+get_nome :: Registro -> Pessoa2
 get_nome (n ,_ ,_) = n
 
 carros :: BD-> [String]
@@ -492,11 +511,6 @@ l = [ prog1 ,prog2 , prog3]
 inicio = sort l
 
 
--- Aula 33
--- modulos
-
--- AUla 34 TAD
--- tipos abstratos de dados
 
 
 --Aula 38
