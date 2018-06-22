@@ -443,16 +443,9 @@ gerar_lista :: Int -> [Int]
 gerar_lista n = n:gerar_lista(n + 1)
 				where n < 10
 
---tipos algebricos
 
-type Pessoa_2 = String
-type Carro = String
-type Idade2 = Int
-type Registro = (Pessoa_2,Carro,Idade2)
-type BD = [Registro]
 
-f_bd:: BD
-f_bd = [("JOAO","BMW",50),("ELENA","CAMARO", 25)]
+
 
 
 
@@ -494,32 +487,3 @@ is_prime 1 = False
 is_prime 2 = True
 is_prime n | (length [x | x <- [2..n-1], n`mod`x == 0 ]) > 0 	= False
 			| otherwise = True  
-
-
---Aula 32
---função sort
-type Nome3 = String
-type Linguagem3 = String
-data Pessoa3 = Programador3 Nome3 Linguagem3 deriving (Ord,Eq,Show)
-
-prog1 = Programador3 "Rafa" "JAVA"
-prog2 = Programador3 "Jota" "Ruby"
-prog3 = Programador3 "TU" "Haskell"
-
-l = [ prog1 ,prog2 , prog3]
-
-inicio = sort l
-
-
-
-
---Aula 38
---IO,monadas,DO
-
-main:: IO ()
-main = do
-		putStr "Digite o primeiro numero: "
-		n1 <- getLine
-		putStr "Digite o segundo numero: "
-		n2<- getLine
-		putStrLn( "Soma: " ++ show ( read n1 + read n2))
