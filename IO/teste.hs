@@ -20,8 +20,8 @@ main = do
 		putStrLn ("Acabou de obter os números perfeitos!");
 	}
 	forkIO $ do {
-	ThreadDelay 3000000;
+	threadDelay 3000000;
 	putStrLn("\nExecutando outra thread");
 	}
-	ThreadDelay 4000000 -- supende a execução por 40 seg
+	threadDelay 4000000 -- supende a execução por 40 seg
 		putStrLn("FIM !");
